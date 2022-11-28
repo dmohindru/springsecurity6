@@ -5,6 +5,7 @@
 3. Allow public access to application endpoints with custom spring security config (SecurityFilterChain).
 4. Create in memory users and their retrieval.
 5. Create user in external DB and their retrieval.
+6. Implement our own UserDetailsService interface for Spring security.
 
 
 ### Important videos in this section
