@@ -20,7 +20,20 @@ public class ProjectSecurityConfig {
 
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-       http.csrf().disable()
+       http.cors().configurationSource(new CorsConfigurationSource() {
+                   @Override
+                   public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
+                       CorsConfiguration config = new CorsConfiguration();
+                       config.setAllowedOrigins(Collections.singletonList("http://localhost:4200"));
+                       config.setAllowedMethods(Collections.singletonList("*"));
+                       config.setAllowCredentials(true);
+                       config.setAllowedHeaders(Collections.singletonList("*"));
+                       config.setMaxAge(3600L);
+                       return config;
+                   }
+               })
+               .and()
+               .csrf().disable()
                .authorizeRequests()
                .antMatchers("/myAccount", "/myBalance", "/myLoans", "/myCards", "/user").authenticated()
                .antMatchers("/notices", "/contact", "/register").permitAll()
