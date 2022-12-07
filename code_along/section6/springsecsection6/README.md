@@ -6,7 +6,7 @@
 4. Create user in external DB and their retrieval.
 5. Use BCryptPasswordEncoder
 6. Implement our own AuthenticationProvider
-7. Enable CORs
+7. Enable CORs an CSRF configuration.
 
 ### Run MySQL docker image
 ```shell
