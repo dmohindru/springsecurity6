@@ -37,7 +37,19 @@ public class ProjectSecurityConfig {
                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                .and()
                .authorizeRequests()
-               .antMatchers("/myAccount", "/myBalance", "/myLoans", "/myCards", "/user").authenticated()
+               // endpoint /myAccount, /myBalance, /myLoans, /myCards need to be authenticated and have respective
+               // authorization
+               // code example with hasAuthority
+               /*.antMatchers("/myAccount").hasAuthority("VIEWACCOUNT")
+               .antMatchers("/myBalance").hasAnyAuthority("VIEWACCOUNT", "VIEWBALANCE")
+               .antMatchers("/myLoans").hasAuthority("VIEWLOANS")
+               .antMatchers("/myCards").hasAuthority("VIEWCARDS")*/
+               // code example with hasRole
+               .antMatchers("/myAccount").hasRole("USER")
+               .antMatchers("/myBalance").hasAnyRole("USER", "ADMIN")
+               .antMatchers("/myLoans").hasRole("USER")
+               .antMatchers("/myCards").hasRole("USER")
+               .antMatchers( "/user").authenticated()
                .antMatchers("/notices", "/contact", "/register").permitAll()
                .and().formLogin()
                .and().httpBasic();

@@ -1,12 +1,14 @@
 ## About springsection6 project
 ### This project demonstrate how to
 1. Bootstrap a basic spring boot project with security.
-2. Protect application endpoints with custom spring security config (SecurityFilterChain).
+2. Protect application endpoints with custom spring security config (SecurityFilterChain) 
+with Authentication(AuthN) and Authorization(AuthZ).
 3. Allow public access to application endpoints with custom spring security config (SecurityFilterChain).
 4. Create user in external DB and their retrieval.
 5. Use BCryptPasswordEncoder
 6. Implement our own AuthenticationProvider
 7. Enable CORs an CSRF configuration.
+8. Create and deal with custom authorization.
 
 ### Run MySQL docker image
 ```shell
