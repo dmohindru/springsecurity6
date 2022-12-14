@@ -12,6 +12,7 @@ with Authentication(AuthN) and Authorization(AuthZ).
 9. Write your own custom security filters.
 10. Use JWT Tokens
 11. Write filter to generate JWT token post successful authentication.
+12. Use method level security in Spring boot.
 
 ### Run MySQL docker image
 ```shell
